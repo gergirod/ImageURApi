@@ -60,7 +60,6 @@ public class ImageListFragment extends Fragment implements ImagesPresenter{
 
             }
         }
-
     }
 
     private void setList(){
