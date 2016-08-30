@@ -1,11 +1,13 @@
 package app.android.girod.imageur.data.model;
 
 import android.net.Uri;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 /**
  * Created by germangirod on 8/30/16.
  */
-public class Image {
+public class Image implements Parcelable{
 
     public String id;
     public String title;
@@ -33,6 +35,47 @@ public class Image {
     public String points;
     public int score;
     public boolean is_album;
+
+    protected Image(Parcel in) {
+        id = in.readString();
+        title = in.readString();
+        description = in.readString();
+        datetime = in.readLong();
+        type = in.readString();
+        width = in.readInt();
+        height = in.readInt();
+        size = in.readInt();
+        views = in.readInt();
+        bandwidth = in.readLong();
+        vote = in.readString();
+        section = in.readString();
+        account_url = in.readString();
+        account_id = in.readString();
+        link = in.readString();
+        comment_count = in.readString();
+        ups = in.readString();
+        downs = in.readString();
+        points = in.readString();
+        score = in.readInt();
+        animated = in.readByte() != 0;
+        favorite = in.readByte() != 0;
+        nsfw = in.readByte() != 0;
+        in_gallery = in.readByte() != 0;
+        is_ad = in.readByte() != 0;
+        is_album = in.readByte() != 0;
+
+
+    }
+
+    public static final Creator<Image> CREATOR = new Creator<Image>() {
+        @Override public Image createFromParcel(Parcel in) {
+            return new Image(in);
+        }
+
+        @Override public Image[] newArray(int size) {
+            return new Image[size];
+        }
+    };
 
     public String getId() {
         return id;
@@ -148,4 +191,37 @@ public class Image {
         return uri;
     }
 
+    @Override public int describeContents() {
+        return 0;
+    }
+
+    @Override public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(id);
+        parcel.writeString(title);
+        parcel.writeString(description);
+        parcel.writeLong(datetime);
+        parcel.writeString(type);
+        parcel.writeInt(width);
+        parcel.writeInt(height);
+        parcel.writeInt(size);
+        parcel.writeInt(views);
+        parcel.writeLong(bandwidth);
+        parcel.writeString(vote);
+        parcel.writeString(section);
+        parcel.writeString(account_url);
+        parcel.writeString(account_id);
+        parcel.writeString(link);
+        parcel.writeString(comment_count);
+        parcel.writeString(ups);
+        parcel.writeString(downs);
+        parcel.writeString(points);
+        parcel.writeInt(score);
+        parcel.writeByte((byte) (animated ? 1 : 0));
+        parcel.writeByte((byte) (favorite ? 1 : 0));
+        parcel.writeByte((byte) (nsfw ? 1 : 0));
+        parcel.writeByte((byte) (in_gallery ? 1 : 0));
+        parcel.writeByte((byte) (is_ad ? 1 : 0));
+        parcel.writeByte((byte) (is_album ? 1 : 0));
+
+    }
 }
