@@ -1,7 +1,6 @@
 package app.android.girod.imageur.ui;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +9,7 @@ import app.android.girod.imageur.R;
 import app.android.girod.imageur.data.model.Image;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import com.facebook.drawee.view.SimpleDraweeView;
 import java.util.List;
 
 /**
@@ -35,6 +35,9 @@ public class ImageListAdapter extends RecyclerView.Adapter<ImageListAdapter.Imag
 
         Image image = images.get(position);
         holder.imageTitle.setText(image.getTitle());
+        holder.image.setImageURI(image.showImage());
+        holder.votes.setText(image.getVote());
+        holder.views.setText(String.valueOf(image.getViews()));
 
     }
 
@@ -43,17 +46,17 @@ public class ImageListAdapter extends RecyclerView.Adapter<ImageListAdapter.Imag
     }
 
     public void setImages(List<Image> images) {
-        Log.e("mirar aca","mirar "+images.size());
         this.images.clear();
         this.images.addAll(images);
-        Log.e("mirar aca", "mirar " + this.images.size());
         notifyDataSetChanged();
-        Log.e("mirar aca ","mirar total "+getItemCount());
     }
 
     public class ImageRowHolder extends RecyclerView.ViewHolder {
 
         @InjectView(R.id.imageTitle) TextView imageTitle;
+        @InjectView(R.id.appPicture) SimpleDraweeView image;
+        @InjectView(R.id.views) TextView views;
+        @InjectView(R.id.votes) TextView votes;
 
         public ImageRowHolder(View itemView) {
             super(itemView);

@@ -1,5 +1,7 @@
 package app.android.girod.imageur.data.model;
 
+import android.net.Uri;
+
 /**
  * Created by germangirod on 8/30/16.
  */
@@ -77,6 +79,9 @@ public class Image {
     }
 
     public String getVote() {
+        if(vote == null || vote.equals("0")){
+            return "No votes";
+        }
         return vote;
     }
 
@@ -135,4 +140,12 @@ public class Image {
     public boolean is_album() {
         return is_album;
     }
+
+
+    public Uri showImage(){
+        Uri uri = Uri.parse(link);
+
+        return uri;
+    }
+
 }
