@@ -1,6 +1,15 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+    <style name="AppTheme" parent="AppCustomTheme">
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="AppCustomTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <!-- Material Theme -->
+        <item name="colorPrimary">@color/app_color</item>
+        <item name="colorPrimaryDark">@color/app_color</item>
+
+    </style>
+
 </resources>
