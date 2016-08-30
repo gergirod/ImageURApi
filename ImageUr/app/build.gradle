@@ -31,19 +31,18 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:2.0.1'
     compile 'com.squareup.okhttp3:okhttp:3.2.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.0.1'
-    compile 'com.google.code.gson:gson:2.5'
     compile 'com.squareup.retrofit2:converter-gson:2.0.0'
     compile 'com.squareup.retrofit2:retrofit-converters:2.0.0-beta3'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0'
     compile 'io.reactivex:rxandroid:0.25.0'
-    compile 'io.reactivex:rxjava:1.0.13'
 
+    //ui
     compile 'com.jakewharton:butterknife:6.1.0'
-
     compile 'com.android.support:recyclerview-v7:24.0.+'
     compile 'com.android.support:appcompat-v7:24.0.0'
     compile 'com.facebook.fresco:fresco:0.11.0'
 
+    //location
     compile 'com.google.android.gms:play-services:7.5.0'
 
 }
